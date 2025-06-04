@@ -1,0 +1,57 @@
+Conventional Commits Guide
+==========================
+
+    Commit Message Format:
+    ----------------------
+    <type>[optional scope]: <short description>
+
+    [optional body]
+
+    [optional footer(s)]
+
+------------------------------------------------------ 
+
+Common Commit Types:
+--------------------
+    feat       - A new feature (MINOR version bump)
+    fix        - A bug fix (PATCH version bump)
+    docs       - Documentation changes only
+    style      - Code formatting (no code logic change)
+    refactor   - Code changes that neither fix a bug nor add a feature
+    test       - Adding or fixing tests
+    chore      - Maintenance tasks like build config or tooling updates
+    ci         - Continuous Integration or deployment-related changes
+
+------------------------------------------------------
+
+Breaking Changes:
+-----------------
+    Add an exclamation mark after type or use a "BREAKING CHANGE:" footer
+
+    Example:
+    --------
+    feat!: change login flow
+
+    BREAKING CHANGE: Login method now requires two-factor authentication.
+
+------------------------------------------------------ 
+
+Examples of Commit Messages:
+----------------------------
+    feat(cart): add remove button to cart items
+    fix(header): fix navigation alignment on mobile
+    docs(readme): update usage examples
+    refactor: simplify image loader logic
+    chore: update dependencies
+    feat!: switch to new auth system
+
+------------------------------------------------------
+
+Notes:
+------
+- Use lowercase types
+- Keep descriptions concise and meaningful
+- Add body or footer only if necessary
+- Scope is optional but helpful (e.g., feat(parser))
+
+------------------------------------------------------

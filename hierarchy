@@ -1,0 +1,103 @@
+---------------------------------------------
+src
+    -components 
+        -all_css_as_well
+        -CartCard.js
+        -Header.js
+        -ProductCard.js
+        -Index.js (collect all components at one clace)
+    
+    -hooks
+        -useTitle.js
+    
+    -pages
+        -Home.js
+        -Cart.js
+        -Index.js (collect all pages at one clace)
+
+    -routes
+        -AllRoutes.js
+
+    index.js
+    App.js
+    index.css
+    App.css
+
+---------------------------------------------
+index.js 
+    - import { BrowserRouter as Router } from "react-router-dom";
+
+    - configured to have BrowserRouter
+
+---------------------------------------------
+routes/AllRoutes.js
+    : import pages , 
+    : Routes, Route
+    : create routes like urls in django here
+
+    import { Routes,Route} from "react-router-dom";
+    import { Home, Cart } from "../pages";
+
+
+    export const AllRoutes = () => {
+    return (
+        <>
+        <Routes>
+            <Route path="/" element={<Home />}/>
+            <Route path="/cart" element={<Home />}/>
+        </Routes>
+        </>
+    )
+    };
+
+    : these paths can be used by navbar using Link to reach that path dynamically check Header.js
+
+---------------------------------------------
+components/Header.js
+    import { Link, NavLink } from "react-router-dom"; 
+    import Logo from "../assets/logo.png"
+    import "./Header.css";
+
+    export const Header = () => {
+    return (
+        <header>
+        <Link to="/" className="logo">
+            <img src={Logo} alt="Shopmate Logo" />
+            <span>Shopping Cart</span>
+        </Link>
+        <nav className="navigation">
+            <NavLink to="/" className="link" end>Home</NavLink>
+            <NavLink to="/cart" className="link">Cart</NavLink>
+        </nav>
+        <Link to="/cart" className="items">
+            <span>Cart: 2</span>
+        </Link>
+        </header>
+    )
+    }
+
+---------------------------------------------
+App.js : to reflect all effects now lets make changes here 
+
+    :import AllRoutes
+    :import Header
+
+    import { AllRoutes } from "./routes/AllRoutes";
+    import { Header } from "./components";
+    import './App.css';
+
+    function App() {
+    return (
+        <div className="App">
+        <Header />
+        <AllRoutes />
+        </div>
+    );
+    }
+
+    export default App;
+
+
+
+
+

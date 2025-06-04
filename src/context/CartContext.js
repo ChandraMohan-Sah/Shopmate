@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useReducer } from "react";
 import { createContext } from "react";
 
 const initialState = {
@@ -10,9 +10,37 @@ const initialState = {
 const CartContext = createContext(initialState);
 
 export const CartProvider = ({children}) => {
+    const [state, dispatch] = useReducer(CartContext, initialState)
+
+    const addToCart= (product) => {
+        const updatedCartList = state.cartList.concat(product);
+
+        dispatch({
+            type: "ADD_TO_CART",
+            payload : {
+                products: updatedCartList
+            }
+        })
+    }
+ 
+
+    const removeFromCart = (product) =>{
+        const updatedCartList = state.cartList.filter(current => current.id !== product.id)
+
+        dispatch({
+            type: "REMOVE_FROM_CART",
+            payload : {
+                products: updatedCartList
+            }
+        })
+    }
+
 
     const value = {
-        total : 50
+        total : state.total,
+        cartList : state.cartList,
+        addToCart,
+        removeFromCart
     };
 
     return (

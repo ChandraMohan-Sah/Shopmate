@@ -1,0 +1,38 @@
+
+ /*
+ CartReducer.js
+ ------------
+  - we create a reducer in which we get access to information 
+  which is our state and action 
+
+  - state : will always have updated information 
+  - action : we also have an action that have (type and payload)
+          -type : what we are trying to perform 
+          -payload : updated information 
+
+    
+CartContext.js
+--------------
+  - const [state, dispatch] = useReducer(CartContext, initialState)
+      so useReducer basically takes the CartContext, initailState
+      in return it gives access to all type of state context , as well as
+      dispatch 
+
+  - now we are not just setting state, but we are defining what exact 
+    type we need to set for , and what will be the value using methods
+    like addToCart 
+
+  - so we define the custom functions addToCart, we take the input like 
+    (product) : argument while calling them ,  and we take them as a parameter
+    to addToCart , perform certain step to get customized updated
+    value
+
+  - I should say we call the dispatch : whenever we want to update something
+
+  -now in CartReducer.js 
+      - dispatch pass : type, payload to CartReducer
+
+      - in CartReducer , we check the type if its availabe in CartReducer
+      - we update with the latest value that is accessible globally 
+
+ */

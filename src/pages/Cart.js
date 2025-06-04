@@ -1,7 +1,10 @@
+import { useCart }  from "../context/CartContext";
+
 import { CartCard } from "../components";
 import { useTitle } from "../hooks/useTitle";
 
 export const Cart = () => {
+  const { total } = useCart();
   useTitle("Cart");
   
   const products = [
@@ -16,7 +19,7 @@ export const Cart = () => {
   return (
     <main>
       <section className="cart">
-        <h1 style={style}>Cart Items : { products.length }</h1>
+        <h1 style={style}>Cart Items : { products.length } / ${total}</h1>
         {products.map((product) =>
           <CartCard key={product.id} product={product} />
         )}
@@ -24,3 +27,5 @@ export const Cart = () => {
     </main>
   )
 };
+
+

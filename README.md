@@ -9,12 +9,12 @@ A sleek and simple React shopping cart application built with **Context API**, *
 ```text
 src/
 ├── assets/       # Static assets like images or icons
-├── components/   # Reusable UI components (ProductCard, CartCard, Header)
+├── components/   # Reusable UI components (ProductCard, CartCard, Header, ...)
 ├── context/      # Global state using React Context (CartContext)
-├── hooks/        # Custom hooks (if any)
-├── pages/        # Page components (Cart, Home)
-├── reducer/      # Cart reducer logic
-├── routes/       # Application routes
+├── hooks/        # Custom hooks (useTitle)
+├── pages/        # Page components (Cart, Home, ...)
+├── reducer/      # Cart reducer logic (cartReducer)
+├── routes/       # Application routes (AllROutes )
 ├── App.js        # Root component
 ├── index.js      # Entry point
 ```

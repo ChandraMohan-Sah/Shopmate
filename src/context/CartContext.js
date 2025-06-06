@@ -1,5 +1,6 @@
 import { useContext, useReducer } from "react";
 import { createContext } from "react";
+import { cartReducer } from "../reducer/cartReducer";
 
 const initialState = {
     cartList : [] ,
@@ -10,10 +11,11 @@ const initialState = {
 const CartContext = createContext(initialState);
 
 export const CartProvider = ({children}) => {
-    const [state, dispatch] = useReducer(CartContext, initialState)
+    const [state, dispatch] = useReducer(cartReducer, initialState)
 
     const addToCart= (product) => {
         const updatedCartList = state.cartList.concat(product);
+        updateTotal(updatedCartList);
 
         dispatch({
             type: "ADD_TO_CART",
@@ -26,7 +28,8 @@ export const CartProvider = ({children}) => {
 
     const removeFromCart = (product) =>{
         const updatedCartList = state.cartList.filter(current => current.id !== product.id)
-
+        updateTotal(updatedCartList);
+        
         dispatch({
             type: "REMOVE_FROM_CART",
             payload : {
@@ -35,6 +38,18 @@ export const CartProvider = ({children}) => {
         })
     }
 
+    // this is not called mannually as other .. its automatic 
+    const updateTotal = (products) => {
+        let total = 0;
+        products.forEach(product => total + product.price )
+
+        dispatch({
+            type: "UPDATE_TOTAL",
+            payload : {
+                total : total 
+            }
+        })
+    }
 
     const value = {
         total : state.total,

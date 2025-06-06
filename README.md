@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🛒 Shopmate - React Shopping Cart App
 
 A sleek and simple React shopping cart application built with **Context API**, **Reducers**, and **React Router**. It features dynamic cart updates, total price calculation, and seamless product management.
@@ -72,3 +73,8 @@ cd Shopmate
 npm install
 npm start
 ```
+=======
+🛒 React Shopping Cart App
+A simple React shopping cart application built using Context API, Reducers, and React Router. It includes dynamic cart updates, total price calculation, and product management.
+
+>>>>>>> 841822d (fix: make cart icon visible by setting span color to white)
